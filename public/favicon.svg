@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#9945FF"/>
+      <stop offset="100%" stop-color="#14F195"/>
+    </linearGradient>
+    <linearGradient id="noodle1" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#9945FF"/>
+      <stop offset="100%" stop-color="#14F195"/>
+    </linearGradient>
+    <linearGradient id="noodle2" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#14F195"/>
+      <stop offset="50%" stop-color="#FFD700"/>
+      <stop offset="100%" stop-color="#FF3B69"/>
+    </linearGradient>
+  </defs>
+  <!-- Bowl body -->
+  <path d="M8 30 Q8 52 32 52 Q56 52 56 30 Z" fill="url(#g)" opacity="0.15" stroke="url(#g)" stroke-width="2"/>
+  <!-- Bowl rim -->
+  <ellipse cx="32" cy="30" rx="26" ry="6" fill="none" stroke="url(#g)" stroke-width="2.5"/>
+  <!-- Noodle lines styled as price chart curves (rising from bowl) -->
+  <path d="M16 28 Q20 18 24 22 Q28 26 30 16 Q32 10 34 14" fill="none" stroke="url(#noodle1)" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M26 28 Q30 20 34 24 Q38 28 40 18 Q42 12 46 16" fill="none" stroke="url(#noodle2)" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- Steam wisps -->
+  <path d="M22 12 Q24 8 22 4" fill="none" stroke="#9945FF" stroke-width="1.5" stroke-linecap="round" opacity="0.4"/>
+  <path d="M40 10 Q42 6 40 2" fill="none" stroke="#14F195" stroke-width="1.5" stroke-linecap="round" opacity="0.4"/>
+  <!-- Chopsticks -->
+  <line x1="44" y1="10" x2="52" y2="28" stroke="#F0F0F0" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/>
+  <line x1="48" y1="8" x2="54" y2="26" stroke="#F0F0F0" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/>
+</svg>
