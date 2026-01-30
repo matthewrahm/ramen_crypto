@@ -1,5 +1,5 @@
 import { useEffect, useRef, useCallback } from 'react'
-import { createChart, ColorType, CrosshairMode } from 'lightweight-charts'
+import { createChart, ColorType, CrosshairMode, CandlestickSeries, LineSeries } from 'lightweight-charts'
 import useChartStore from '../../stores/useChartStore'
 import useAppStore from '../../stores/useAppStore'
 import useIndicators from '../../hooks/useIndicators'
@@ -99,7 +99,7 @@ export default function PriceChart() {
     overlaySeriesRefs.current = {}
 
     if (chartType === 'candlestick') {
-      mainSeries.current = chart.addCandlestickSeries({
+      mainSeries.current = chart.addSeries(CandlestickSeries, {
         upColor: '#14F195',
         downColor: '#FF3B69',
         borderUpColor: '#14F195',
@@ -109,7 +109,7 @@ export default function PriceChart() {
       })
       mainSeries.current.setData(candles)
     } else {
-      mainSeries.current = chart.addLineSeries({
+      mainSeries.current = chart.addSeries(LineSeries, {
         color: asset?.color || COLORS.purple,
         lineWidth: 2,
         crosshairMarkerRadius: 4,
@@ -143,7 +143,7 @@ export default function PriceChart() {
 
     Object.entries(overlayConfigs).forEach(([key, config]) => {
       if (indicators[key] && indicators[key].length > 0) {
-        const series = chart.addLineSeries({
+        const series = chart.addSeries(LineSeries, {
           color: config.color,
           lineWidth: config.lineWidth,
           lineStyle: config.lineStyle || 0,

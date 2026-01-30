@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react'
-import { createChart, ColorType } from 'lightweight-charts'
+import { createChart, ColorType, AreaSeries } from 'lightweight-charts'
 import useSentimentStore from '../../stores/useSentimentStore'
 import useThemeStore from '../../stores/useThemeStore'
 import { getChartColors } from '../../lib/chartTheme'
@@ -39,7 +39,7 @@ export default function FearGreedTimeline() {
 
     chartInstance.current = chart
 
-    const areaSeries = chart.addAreaSeries({
+    const areaSeries = chart.addSeries(AreaSeries, {
       topColor: 'rgba(153, 69, 255, 0.3)',
       bottomColor: 'rgba(153, 69, 255, 0.0)',
       lineColor: '#9945FF',

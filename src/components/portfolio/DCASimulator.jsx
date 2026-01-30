@@ -1,6 +1,6 @@
 import { useState, useCallback } from 'react'
 import { useEffect, useRef } from 'react'
-import { createChart, ColorType } from 'lightweight-charts'
+import { createChart, ColorType, AreaSeries, LineSeries } from 'lightweight-charts'
 import { ASSETS } from '../../lib/constants'
 import { getChartColors } from '../../lib/chartTheme'
 import useThemeStore from '../../stores/useThemeStore'
@@ -55,7 +55,7 @@ export default function DCASimulator() {
 
         chartInstance.current = chart
 
-        const valueSeries = chart.addAreaSeries({
+        const valueSeries = chart.addSeries(AreaSeries, {
           topColor: 'rgba(20, 241, 149, 0.3)',
           bottomColor: 'rgba(20, 241, 149, 0.0)',
           lineColor: '#14F195',
@@ -65,7 +65,7 @@ export default function DCASimulator() {
           sim.dataPoints.map((d) => ({ time: d.time, value: d.value }))
         )
 
-        const investedSeries = chart.addLineSeries({
+        const investedSeries = chart.addSeries(LineSeries, {
           color: '#9945FF',
           lineWidth: 1.5,
           lineStyle: 2,

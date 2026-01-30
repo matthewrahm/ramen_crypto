@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react'
-import { createChart, ColorType } from 'lightweight-charts'
+import { createChart, ColorType, LineSeries, HistogramSeries } from 'lightweight-charts'
 import useIndicators from '../../hooks/useIndicators'
 import useIndicatorStore from '../../stores/useIndicatorStore'
 import useThemeStore from '../../stores/useThemeStore'
@@ -51,7 +51,7 @@ function RSIChart() {
 
     chartInstance.current = chart
 
-    const series = chart.addLineSeries({
+    const series = chart.addSeries(LineSeries, {
       color: COLORS.rsiLine,
       lineWidth: 1.5,
       priceLineVisible: false,
@@ -60,7 +60,7 @@ function RSIChart() {
     series.setData(indicators.rsi)
 
     // 30/70 reference lines
-    const overSold = chart.addLineSeries({
+    const overSold = chart.addSeries(LineSeries, {
       color: 'rgba(255, 59, 105, 0.3)',
       lineWidth: 1,
       lineStyle: 2,
@@ -68,7 +68,7 @@ function RSIChart() {
       lastValueVisible: false,
       crosshairMarkerVisible: false,
     })
-    const overBought = chart.addLineSeries({
+    const overBought = chart.addSeries(LineSeries, {
       color: 'rgba(20, 241, 149, 0.3)',
       lineWidth: 1,
       lineStyle: 2,
@@ -140,7 +140,7 @@ function MACDChart() {
 
     chartInstance.current = chart
 
-    const macdSeries = chart.addLineSeries({
+    const macdSeries = chart.addSeries(LineSeries, {
       color: COLORS.macdLine,
       lineWidth: 1.5,
       priceLineVisible: false,
@@ -148,7 +148,7 @@ function MACDChart() {
     })
     macdSeries.setData(indicators.macdLine)
 
-    const signalSeries = chart.addLineSeries({
+    const signalSeries = chart.addSeries(LineSeries, {
       color: COLORS.macdSignal,
       lineWidth: 1.5,
       priceLineVisible: false,
@@ -156,7 +156,7 @@ function MACDChart() {
     })
     signalSeries.setData(indicators.macdSignal)
 
-    const histogramSeries = chart.addHistogramSeries({
+    const histogramSeries = chart.addSeries(HistogramSeries, {
       priceLineVisible: false,
       lastValueVisible: false,
     })

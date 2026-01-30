@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { createChart, ColorType } from 'lightweight-charts'
+import { createChart, ColorType, LineSeries } from 'lightweight-charts'
 import { ASSETS, TIME_RANGES } from '../../lib/constants'
 import { fetchKlines } from '../../services/binanceRest'
 import { normalizeToPercent } from '../../lib/chartHelpers'
@@ -73,7 +73,7 @@ export default function ComparisonChart() {
 
           const normalized = normalizeToPercent(lineData)
 
-          const series = chart.addLineSeries({
+          const series = chart.addSeries(LineSeries, {
             color: asset.color,
             lineWidth: 2,
             title: asset.symbol,
